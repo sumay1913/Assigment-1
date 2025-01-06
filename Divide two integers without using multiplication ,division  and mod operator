@@ -1,0 +1,28 @@
+#include <stdio.h>
+int divide(int dividend, int divisor) {
+    if (divisor == 0) {
+        printf("Error: Division by zero\n");
+        return -1;
+    }
+    int sign = ((dividend < 0) ^ (divisor < 0)) ? -1 : 1;
+    dividend = (dividend < 0) ? -dividend : dividend;
+    divisor = (divisor < 0) ? -divisor : divisor;
+ int quotient = 0;
+    for (int i = 31; i >= 0; i--) {
+        if ((dividend >> i) >= divisor) {
+            dividend -= (divisor << i);  
+            quotient += (1 << i);       
+        }
+    }
+ return sign * quotient;
+}
+int main() {
+    int dividend, divisor;
+    printf("Enter dividend: ");
+    scanf("%d", &dividend);
+    printf("Enter divisor: ");
+    scanf("%d", &divisor);
+    int result = divide(dividend, divisor);
+  printf("Result of division: %d\n", result);
+      return 0;
+}
