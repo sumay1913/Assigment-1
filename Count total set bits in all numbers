@@ -1,0 +1,20 @@
+#include <stdio.h>
+int count_set_bits(int n) {
+    int count = 0;
+    for (int i = 1; i <= n; i++) {
+        int num = i
+        while (num) {
+            count += num & 1;  
+            num >>= 1;  
+        }
+    }
+     return count;
+}
+int main() {
+    int n;
+    printf("Enter a number: ");
+    scanf("%d", &n)
+    int result = count_set_bits(n);
+    printf("Total number of set bits from 1 to %d is: %d\n", n, result);
+     return 0;
+}
