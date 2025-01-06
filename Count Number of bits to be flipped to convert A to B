@@ -1,0 +1,23 @@
+#include <stdio.h>
+int count_set_bits(int n) {
+    int count = 0;
+    while (n) {
+        count += n & 1; 
+        n >>= 1;  
+    }
+    return count;
+}
+int count_bits_to_flip(int A, int B) {
+    int xor_result = A ^ B;  // XOR to find the differing bits
+    return count_set_bits(xor_result);  
+}
+int main() {
+    int A, B;
+    printf("Enter first number (A): ");
+    scanf("%d", &A);
+    printf("Enter second number (B): ");
+    scanf("%d", &B);
+    int result = count_bits_to_flip(A, B);
+    printf("Number of bits to be flipped to convert A to B: %d\n", result);
+     return 0;
+}
