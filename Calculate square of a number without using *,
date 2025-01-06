@@ -1,0 +1,18 @@
+#include <stdio.h>
+int square(int n) {
+    int result = 0;
+    int increment = 1
+    for (int i = 1; i <= n; i++) {
+        result += increment;
+        increment += 2; 
+    }
+ return result;
+}
+int main() {
+    int number;
+    printf("Enter a number: ");
+    scanf("%d", &number)
+    int result = square(number);
+    printf("The square of %d is: %d\n", number, result);
+ return 0;
+}
